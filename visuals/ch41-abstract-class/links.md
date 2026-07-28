@@ -1,0 +1,8 @@
+# ch41-abstract-class · 시각화 자료
+
+> 출처: slog.gg/p/14146 41강
+
+## 메모리 시각화 (pythontutor / java_visualize)
+1. https://pythontutor.com/render.html#code=public%20class%20MainClass%20%7B%0A%20%20public%20static%20void%20main%28String%5B%5D%20args%29%20%7B%0A%20%20%20%20%EC%B9%BC%20a%EC%B9%BC%20%3D%20new%20%ED%99%A9%EA%B8%88%EC%B9%BC%28%29%3B%0A%20%20%20%20a%EC%B9%BC.%EA%B3%B5%EA%B2%A9%28%29%3B%0A%20%20%7D%0A%7D%0A%0Aabstract%20class%20%EB%AC%B4%EA%B8%B0%20%7B%0A%20%20abstract%20void%20%EA%B3%B5%EA%B2%A9%28%29%3B%0A%7D%0A%0Aabstract%20class%20%EC%B9%BC%20extends%20%EB%AC%B4%EA%B8%B0%20%7B%0A%20%20void%20%EA%B3%B5%EA%B2%A9%28%29%20%7B%20System.out.println%28%22%EC%B9%BC%20%EA%B3%B5%EA%B2%A9%22%29%3B%20%7D%20%20%0A%7D%0A%0Aclass%20%ED%99%A9%EA%B8%88%EC%B9%BC%20extends%20%EC%B9%BC%20%7B%0A%7D&cumulative=false&curInstr=0&heapPrimitives=true&mode=display&origin=opt-frontend.js&py=java&rawInputLstJSON=%5B%5D&textReferences=true
+2. https://pythontutor.com/render.html#code=public%20class%20MainClass%20%7B%0A%20%20public%20static%20void%20main%28String%5B%5D%20args%29%20%7B%0A%20%20%20%20%EC%B9%BC%20a%EC%B9%BC%20%3D%20new%20%ED%99%A9%EA%B8%88%EC%B9%BC%28%29%3B%0A%20%20%20%20a%EC%B9%BC.%EA%B3%B5%EA%B2%A9%28%29%3B%0A%20%20%7D%0A%7D%0A%0Aabstract%20class%20%EB%AC%B4%EA%B8%B0%20%7B%0A%20%20abstract%20void%20%EA%B3%B5%EA%B2%A9%28%29%3B%0A%7D%0A%0Aabstract%20class%20%EC%B9%BC%20extends%20%EB%AC%B4%EA%B8%B0%20%7B%20%7D%0A%0Aclass%20%ED%99%A9%EA%B8%88%EC%B9%BC%20extends%20%EC%B9%BC%20%7B%0A%20%20void%20%EA%B3%B5%EA%B2%A9%28%29%20%7B%20System.out.println%28%22%EC%B9%BC%20%EA%B3%B5%EA%B2%A9%22%29%3B%20%7D%0A%7D&cumulative=false&curInstr=0&heapPrimitives=true&mode=display&origin=opt-frontend.js&py=java&rawInputLstJSON=%5B%5D&textReferences=true
+
