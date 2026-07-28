@@ -1,22 +1,59 @@
 # 35강 · 레퍼런스 변수에 값(리모콘)이 할당되는 과정
 
-> P7. static | 출처: slog.gg/p/14146 35강
+> P7. static · 출처: [slog.gg/p/14146](https://www.slog.gg/p/14146) 35강
 
 ## 🎯 핵심 개념
-# 35강
-- 26 04 22, p 14146, 35강, 레퍼런스 변수에 값(리모콘)이 할당되는 과정
-- 비주얼라이저+%7B%0A++++++++//+%EC%98%A4%EC%A7%81+%EC%9E%90%EB%8F%99%EC%B0%A8+%EB%A6%AC%EB%AA%A8%EC%BD%98%EB%A7%8C+%EC%A0%80%EC%9E%A5+%ED%95%A0+%EC%88%98+%EC%9E%88%EB%8A%94+%EB%B3%80%EC%88%98+%60a%EC%9E%90%EB%8F%99%EC%B0%A8%60%EB%A5%BC+%EB%A7%8C%EB%93%A0%EB%8B%A4.%0A++++++++//+%60a%EC%9E%90%EB%8F%99%EC%B0%A8%60+%EC%97%90%EB%8A%94+%EC%9E%90%EB%8F%99%EC%B0%A8+%ED%81%B4%EB%9E%98%EC%8A%A4%EB%A1%9C+%EB%A7%8C%EB%93%A0+%EB%A6%AC%EB%AA%A8%EC%BD%98(%EC%93%B0%EB%A0%88%EA%B8%B0+%EB%A6%AC%EB%AA%A8%EC%BD%98)%EC%9D%B4+%EB%93%A4%EC%96%B4%EA%B0%80%EA%B2%8C+%EB%90%9C%EB%8B%A4.%0A++++++++%EC%9E%90%EB%8F%99%EC%B0%A8+a%EC%9E%90%EB%8F%99%EC%B0%A8%3B%0A%0A++++++++//+%EC%9E%90%EB%8F%99%EC%B0%A8+%EC%84%A4%EA%B3%84%EB%8F%84(%ED%81%B4%EB%9E%98%EC%8A%A4)%EB%A1%9C+%EC%9E%90%EB%8F%99%EC%B0%A8+%EA%B0%9D%EC%B2%B4%EB%A5%BC+%EB%B3%80%EC%88%98+%EC%99%B8!%EB%B6%80!%EC%97%90+%EB%A7%8C%EB%93%A0%EB%8B%A4.%0A++++++++//+%EC%9E%90%EB%8F%99%EC%B0%A8+%EA%B0%9D%EC%B2%B4%EB%8A%94+%EC%9E%90%EC%8B%A0%EC%9D%84+%EC%A1%B0%EC%A2%85%ED%95%A0+%EC%88%98+%EC%9E%88%EB%8A%94+%EB%A6%AC%EB%AA%A8%EC%BD%98(this)%EB%A5%BC+%EA%B0%80%EC%A7%80%EA%B3%A0+%ED%83%9C%EC%96%B4%EB%82%9C%EB%8B%A4.+%EC%A6%89+%EC%9E%90%EB%8F%99%EC%B0%A8+%EA%B0%9D%EC%B2%B4+%EB%A7%8C%EB%93%A4+%EB%95%8C+%EC%9E%90%EB%8F%99%EC%B0%A8+%EB%A6%AC%EB%AA%A8%EC%BD%98%EB%8F%84+%EA%B0%99%EC%9D%B4+%EB%A7%8C%EB%93%A4%EC%96%B4%EC%A7%84%EB%8B%A4.%0A++++++++//+%EC%9E%90%EB%8F%99%EC%B0%A8+%EA%B0%9D%EC%B2%B4%EB%8A%94+%EC%9E%90%EC%8B%A0%EC%9D%B4+%EB%93%A4%EA%B3%A0+%EC%9E%88%EB%8A%94+%EB%A6%AC%EB%AA%A8%EC%BD%98(this)%EB%A5%BC+%EB%B3%B5%EC%82%AC%ED%95%B4%EC%84%9C+%EB%B0%98%ED%99%98%ED%95%9C%EB%8B%A4.%0A++++++++//+a%EC%9E%90%EB%8F%99%EC%B0%A8+%EC%95%88%EC%97%90+%EB%93%A4%EC%96%B4%EC%9E%88%EB%8D%98+%EC%93%B0%EB%A0%88%EA%B8%B0+%EB%A6%AC%EB%AA%A8%EC%BD%98%EC%9D%B4+%EC%A7%84%EC%A7%9C+%EB%A6%AC%EB%AA%A8%EC%BD%98%EC%9C%BC%EB%A1%9C+%EB%8C%80%EC%B2%B4%EB%90%9C%EB%8B%A4.%0A++++++++a%EC%9E%90%EB%8F%99%EC%B0%A8+%3D+new+%EC%9E%90%EB%8F%99%EC%B0%A8%3B%0A%0A++++++++//+%60a%EC%9E%90%EB%8F%99%EC%B0%A8%60+%EB%B3%80%EC%88%98%EC%97%90+%EC%95%88%EC%97%90+%EC%9E%88%EB%8A%94+%EB%A6%AC%EB%AA%A8%EC%BD%98%EC%9D%98+%60%EB%8B%AC%EB%A6%AC%EB%8B%A4%60+%EB%B2%84%ED%8A%BC%EC%9D%84+%EB%88%84%EB%A5%B8%EB%8B%A4.%0A++++++++//+%ED%95%B4%EB%8B%B9+%EC%8B%A0%ED%98%B8%EA%B0%80+%EB%A6%AC%EB%AA%A8%EC%BD%98%EA%B3%BC+%EC%97%B0%EA%B2%B0%EB%90%98%EC%96%B4+%EC%9E%88%EB%8A%94+%EC%9E%90%EB%8F%99%EC%B0%A8+%EA%B0%9D%EC%B2%B4%EC%97%90+%EC%A0%84%EB%8B%AC%EB%90%98%EC%96%B4+%60%EB%8B%AC%EB%A6%AC%EB%8B%A4%60+%EA%B8%B0%EB%8A%A5%EC%9D%B4+%EC%8B%A4%ED%96%89%EB%90%9C%EB%8B%A4.%0A++++++++a%EC%9E%90%EB%8F%99%EC%B0%A8.%EB%8B%AC%EB%A6%AC%EB%8B%A4%3B%0A%0A++++++++//+%EB%AA%A8%EB%93%A0+%EA%B0%9D%EC%B2%B4%EB%93%A4%EC%9D%80+%EC%84%9C%EB%A1%9C%EB%A5%BC+%ED%8F%89%EC%83%9D+%EB%B3%BC+%EC%88%98+%EC%97%86%EB%8B%A4.%0A++++++++//+%EB%AA%A8%EB%93%A0+%EA%B0%9D%EC%B2%B4%EB%93%A4%EC%9D%80+%EC%84%9C%EB%A1%9C%EB%A5%BC+%EC%9B%90%EA%B2%A9%EC%A1%B0%EC%A2%85%ED%95%9C%EB%8B%A4.%0A++++%7D%0A%7D%0A%0A//+%EC%9E%90%EB%8F%99%EC%B0%A8+%EC%84%A4%EA%B3%84%EB%8F%84!,+%EC%A0%88%EB%8C%80+%EC%9E%90%EB%8F%99%EC%B0%A8%EA%B0%80+%EC%95%84%EB%8B%88%EB%8B%A4.!!!%0Aclass+%EC%9E%90%EB%8F%99%EC%B0%A8+%7B%0A++++//+%EC%9D%B4+%EB%A9%94%EC%84%9C%EB%93%9C(%ED%95%A8%EC%88%98)%EC%9D%98+2%EA%B0%80%EC%A7%80+%EC%9A%A9%EB%8F%84%0A++++//+-+%EA%B0%9D%EC%B2%B4+%EB%A7%8C%EB%93%A4%EB%95%8C+%3A+%EC%8B%A4%EC%A0%9C+%EA%B8%B0%EB%8A%A5%0A++++//+-+%EB%A6%AC%EB%AA%A8%EC%BD%98+%EB%A7%8C%EB%93%A4%EB%95%8C+%3A+%EB%A6%AC%EB%AA%A8%EC%BD%98+%EB%B2%84%ED%8A%BC%0A++++void+%EB%8B%AC%EB%A6%AC%EB%8B%A4+%7B%0A++++++%09System.out.println(%22%EC%9E%90%EB%8F%99%EC%B0%A8%EA%B0%80+%EB%8B%AC%EB%A6%BD%EB%8B%88%EB%8B%A4.%22)%3B%0A++++%7D%0A++++%0A++++void+%EC%A0%95%EC%A7%80%ED%95%98%EB%8B%A4+%7B%0A++++++%09System.out.println(%22%EC%9E%90%EB%8F%99%EC%B0%A8%EA%B0%80+%EC%A0%95%EC%A7%80%ED%95%A9%EB%8B%88%EB%8B%A4.%22)%3B%0A++++%7D%0A%7D&mode=display&curInstr=0)
+- 레퍼런스 변수에 값(리모콘)이 할당되는 과정
 
-## 💻 실습 코드
+## 💻 실습 코드 & 실행 결과
 `src/ch35-reference-assign/Main.java`
 
-## 🧠 메모리에서 무슨 일이?
-시각화 자료: [visuals](../visuals/ch35-reference-assign/links.md)
+```java
+// 문제 : 레퍼런스변수에 값 할당과정 설명
 
-## ✅ 실행 결과
-```
-(정리 예정)
+public class Main {
+    public static void main(String[] args) {
+        // 오직 자동차 리모콘만 저장 할 수 있는 변수 `a자동차`를 만든다.
+        // `a자동차` 에는 자동차 클래스로 만든 리모콘(쓰레기 리모콘)이 들어가게 된다.
+        자동차 a자동차;
+
+        // 자동차 설계도(클래스)로 자동차 객체를 변수 외!부!에 만든다.
+        // 자동차 객체는 자신을 조종할 수 있는 리모콘(this)를 가지고 태어난다. 즉 자동차 객체 만들 때 자동차 리모콘도 같이 만들어진다.
+        // 자동차 객체는 자신이 들고 있는 리모콘(this)를 복사해서 반환한다.
+        // a자동차 안에 들어있던 쓰레기 리모콘이 진짜 리모콘으로 대체된다.
+        a자동차 = new 자동차();
+
+        // `a자동차` 변수에 안에 있는 리모콘의 `달리다` 버튼을 누른다.
+        // 해당 신호가 리모콘과 연결되어 있는 자동차 객체에 전달되어 `달리다` 기능이 실행된다.
+        a자동차.달리다();
+
+        // 모든 객체들은 서로를 평생 볼 수 없다.
+        // 모든 객체들은 서로를 원격조종한다.
+    }
+}
+
+// 자동차 설계도!, 절대 자동차가 아니다.!!!
+class 자동차 {
+    // 이 메서드(함수)의 2가지 용도
+    // - 객체 만들때 : 실제 기능
+    // - 리모콘 만들때 : 리모콘 버튼
+    void 달리다() {
+      	System.out.println("자동차가 달립니다.");
+    }
+    
+    void 정지하다() {
+      	System.out.println("자동차가 정지합니다.");
+    }
+}
 ```
 
-## 📝 회고 / 헷갈렸던 점
--
+**실행 결과**
+```
+자동차가 달립니다.
+```
+
+## 🧠 메모리 시각화
+- [visuals/ch35-reference-assign/links.md](../visuals/ch35-reference-assign/links.md) — pythontutor 메모리 스냅샷
+
+## 📝 한 줄 정리
+> 레퍼런스 변수에 값(리모콘)이 할당되는 과정
